@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+$primary-color: rgb(181, 255, 10);
+$accent-color: #efefef;
+
+acma-root {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  header {
+    height: 60px;
+    background-color: $primary-color;
+    &:hover {
+      background-color: darken($primary-color, 5%);
+    }
+  }
+  main {
+    flex:1;
+  }
+  footer {
+    height: 200px;
+    background-color: $accent-color;
+    &:hover {
+      background-color: darken($accent-color, 5%);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+

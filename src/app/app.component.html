@@ -1,20 +1,76 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header>
+    <h1 [id]="title">
+        Welcome to {{ title }}!
+        {{date | date: "dd.MM.yyyy HH:mm:ss"}}
+    </h1>
+</header>
+
+<p [innerHTML]="'Weitere Informationen finden sie auf https://www.google.ch. Viel Glück' | replaceLink"></p>
+<p [innerHTML]="'Weitere Informationen finden sie auf http://www.google.ch. Viel Glück' | replaceLink"></p>
+<p [innerHTML]="'Weitere Informationen finden sie auf ftp://www.google.ch. Viel Glück' | replaceLink"></p>
+<p [innerHTML]="'Weitere Informationen finden sie auf sftp://www.google.ch. Viel Glück' | replaceLink"></p>
+
+<input type="text" placeholder="Telefon" (change)="setPhone($event)">
+{{myPhone | phone}}
+
+<!--<p [innerHTML]="'Was für ein \n schöner Tag \n heute' | break"></p>-->
+
+<!--<div *ngFor="let i of myArray | slce: 2:5">-->
+    <!--{{i}}-->
+<!--</div>-->
+
+<acma-debug [data]="users"></acma-debug>
+
+<main>
+
+    <acma-wikipedia></acma-wikipedia>
+
+    <div class="lightBox">
+        <div class="lightBoxArray">
+        <img acmaLightBox="" src="https://d2kwjcq8j5htsz.cloudfront.net/1970/01/30153329/clownfish.jpg" height="100px">
+        <img acmaLightBox="" src="https://www.algone.com/wp-content/uploads/2013/06/powder-blue-surgeonfish.jpg"
+             height="100px">
+        <img acmaLightBox=""
+             src="http://webbox.imgix.net/images/rjkusevuewyydbak/b96ed3d4-6e35-476f-ab1e-609e74ebc2ed.jpg"
+             height="100px">
+        </div>
+        <acma-light-box></acma-light-box>
+    </div>
+
+    <select name="" id="">
+        <ng-container *acmaRange="[18,100]; let number">
+            <option>{{number}}</option>
+        </ng-container>
+    </select>
+
+    <!--<div *ngFor="let x of delayArray; let i = index">-->
+    <!--<div *acmaDelay="500 * i">{{x}}</div>-->
+    <!--</div>-->
+
+    <p acmaHighlight="red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, molestiae!</p>
+
+    <acma-accordion-wrapper [maxOpenElements]="1" acmaHighlight="pink">
+        <acma-accordion-element [title]="'Accordion 1'" [isVisible]="true">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis delectus ducimus molestias odio odit
+            quaerat rem rerum saepe tenetur voluptates.
+        </acma-accordion-element>
+        <acma-accordion-element [title]="'Accordion 2'" [isVisible]="false">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore illo illum magni modi, nemo tempore.
+        </acma-accordion-element>
+        <acma-accordion-element [title]="'Accordion 3'" [isVisible]="false">
+            Lorem ipsum dolor sit amet, consectetur adipisicing.
+        </acma-accordion-element>
+    </acma-accordion-wrapper>
+
+    <div *ngFor="let number of myArray">
+        <h3>{{number}}</h3>
+    </div>
+
+    <acma-counter (stepSizeChanged)="log($event)"></acma-counter>
+    <acma-counter [showStepResizer]="false"></acma-counter>
+</main>
+
+<footer></footer>
+
+<acma-board-message></acma-board-message>
 

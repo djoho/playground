@@ -1,0 +1,8 @@
+<div class="previews">
+    <button name="Prev" (click)="lightBoxService.prevImage()">Prev</button>
+    <button name="Show" (click)="lightBoxService.toggleShowImage()">Show</button>
+    <button name="Next" (click)="lightBoxService.nextImage()">Next</button>
+</div>
+<div class="zoom">
+    <img src="{{lightBoxService.displayImage()}}" *ngIf="lightBoxService.showImage" (click)="lightBoxService.toggleShowImage()" height="400px">
+</div>
